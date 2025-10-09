@@ -479,3 +479,103 @@ img {
   }
 }
 
+/* =============================================
+ * == 以下をstyle.cssの末尾に追記
+ * ========================================== */
+
+/* =============================================
+ * == Components (追加)
+ * ========================================== */
+/* --- ページヘッダー (下層ページ共通) --- */
+.c-page-header {
+  background-color: var(--color-main);
+  color: var(--color-text-light);
+  padding-top: calc(var(--header-height-sp) + var(--spacing-unit) * 5); /* 100px */
+  padding-bottom: calc(var(--spacing-unit) * 5); /* 40px */
+  text-align: center;
+}
+.c-page-header__title {
+  font-family: var(--font-family-heading);
+  font-size: 32px;
+}
+.c-page-header__subtitle {
+  font-size: 14px;
+  letter-spacing: .1em;
+  opacity: 0.8;
+  margin-top: var(--spacing-unit);
+}
+
+/* --- メディアセクション (画像+テキスト) --- */
+.c-media-section {
+  display: flex;
+  flex-direction: column;
+}
+.c-media-section__image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.c-media-section__body {
+  padding: calc(var(--spacing-unit) * 5); /* 40px */
+}
+.c-media-section__title {
+  font-family: var(--font-family-heading);
+  font-size: 28px;
+  margin-bottom: calc(var(--spacing-unit) * 2); /* 16px */
+}
+.c-media-section__text {
+  margin-bottom: calc(var(--spacing-unit) * 4); /* 32px */
+}
+
+/* =============================================
+ * == Utility (汎用)
+ * ========================================== */
+.u-text-center {
+  text-align: center;
+}
+
+/* --- レスポンシブ用 表示/非表示 --- */
+.u-hidden-sp {
+  display: none;
+}
+
+/* =============================================
+ * == Media Queries (PC)
+ * ========================================== */
+@media (min-width: 768px) {
+  /* --- Components (PC) --- */
+  .c-page-header {
+    padding-top: calc(var(--header-height-pc) + var(--spacing-unit) * 8); /* 144px */
+    padding-bottom: calc(var(--spacing-unit) * 8); /* 64px */
+  }
+  .c-page-header__title {
+    font-size: 40px;
+  }
+
+  .c-media-section {
+    flex-direction: row;
+    align-items: center;
+  }
+  .c-media-section__image-wrapper,
+  .c-media-section__body {
+    width: 50%;
+  }
+  .c-media-section__body {
+    padding: calc(var(--spacing-unit) * 8); /* 64px */
+  }
+  /* 画像とテキストを反転させるModifier */
+  .c-media-section--reverse {
+    flex-direction: row-reverse;
+  }
+
+  /* --- Utility (PC) --- */
+  .u-hidden-sp {
+    display: inline; /* or block, as needed */
+  }
+}
+
+@media (min-width: 992px) {
+  .c-media-section__body {
+    padding: calc(var(--spacing-unit) * 10); /* 80px */
+  }
+}
