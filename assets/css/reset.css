@@ -1,0 +1,85 @@
+/*
+ * Simple CSS Reset
+ *
+ * This reset stylesheet is designed to be a clean slate for modern web development.
+ */
+
+/* 1. Use a more intuitive box-sizing model. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin and padding on most elements. */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Remove list styles on ul, ol elements. */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 4. Set core root defaults. */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* 5. Set core body defaults. */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* 6. Make images and other media easier to work with. */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for inputs and buttons. */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  background-color: transparent;
+}
+
+/* 8. Remove all animations and transitions for people that prefer not to see them. */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
