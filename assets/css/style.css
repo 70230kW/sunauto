@@ -579,3 +579,72 @@ img {
     padding: calc(var(--spacing-unit) * 10); /* 80px */
   }
 }
+
+/* =============================================
+ * == 以下をstyle.cssの末尾に追記
+ * ========================================== */
+
+/* =============================================
+ * == Components (追加)
+ * ========================================== */
+
+/* --- バリューカード --- */
+.c-value-card {
+  text-align: center;
+}
+.c-value-card__icon {
+  margin: 0 auto 16px;
+  width: 60px;
+  height: 60px;
+  /* アイコンの色をメインカラーに合わせる場合 */
+  /* color: var(--color-main); */
+}
+.c-value-card__title {
+  font-family: var(--font-family-heading);
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.c-value-card__text {
+  text-align: left;
+  font-size: 15px;
+}
+
+/* =============================================
+ * == Pages > Philosophy
+ * ========================================== */
+.p-philosophy-mission__title {
+  font-family: var(--font-family-heading);
+  font-size: 32px;
+  margin-bottom: 32px;
+}
+.p-philosophy-mission__text {
+  line-height: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.p-philosophy-values {
+  background-color: var(--color-background);
+}
+.p-philosophy-values__grid {
+  display: grid;
+  gap: 40px;
+}
+
+/* =============================================
+ * == Media Queries (PC) への追記
+ * ========================================== */
+@media (min-width: 768px) {
+  .p-philosophy-mission__title {
+    font-size: 40px;
+  }
+  .p-philosophy-values__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+@media (min-width: 992px) {
+  .p-philosophy-values__grid {
+    gap: 60px;
+  }
+}
