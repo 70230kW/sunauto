@@ -290,4 +290,189 @@ img {
     justify-content: space-between;
     text-align: left;
   }
+
+}
+
+/* =============================================
+ * == 以下をstyle.cssの末尾に追記
+ * ========================================== */
+
+/* =============================================
+ * == Components (共通)
+ * ========================================== */
+
+/* --- セクション共通の余白 --- */
+.l-section {
+  padding-top: calc(var(--spacing-unit) * 10); /* 80px */
+  padding-bottom: calc(var(--spacing-unit) * 10); /* 80px */
+}
+
+/* --- セクションタイトル --- */
+.c-section-title {
+  font-family: var(--font-family-heading);
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: calc(var(--spacing-unit) * 6); /* 48px */
+}
+.c-section-title--light {
+  color: var(--color-text-light);
+}
+
+/* --- 汎用ボタン --- */
+.c-button {
+  display: inline-block;
+  background-color: var(--color-main);
+  color: var(--color-text-light);
+  font-weight: 700;
+  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 5); /* 12px 40px */
+  border: 2px solid var(--color-main);
+  border-radius: 4px;
+  transition: all var(--transition-duration);
+}
+.c-button:hover {
+  opacity: 1;
+  background-color: var(--color-base);
+  color: var(--color-main);
+}
+.c-button--outline {
+  background-color: transparent;
+  color: var(--color-text-light);
+  border-color: var(--color-text-light);
+}
+.c-button--outline:hover {
+  background-color: var(--color-text-light);
+  color: var(--color-main);
+}
+
+/* --- カード型コンポーネント --- */
+.c-card {
+  background-color: var(--color-base);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.c-card__image-wrapper {
+  aspect-ratio: 16 / 10;
+}
+.c-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.c-card__body {
+  padding: calc(var(--spacing-unit) * 3); /* 24px */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.c-card__title {
+  font-family: var(--font-family-heading);
+  font-size: 22px;
+  margin-bottom: var(--spacing-unit);
+}
+.c-card__text {
+  margin-bottom: calc(var(--spacing-unit) * 3); /* 24px */
+  flex-grow: 1;
+}
+.c-card__button-wrapper {
+  text-align: center;
+}
+
+/* =============================================
+ * == Pages > Top
+ * ========================================== */
+
+/* --- Hero Section --- */
+.p-top-hero {
+  height: calc(100vh - var(--header-height-sp));
+  margin-top: var(--header-height-sp);
+  background-image: url('../images/top/hero-image.jpg'); /* 背景画像を指定 */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.p-top-hero::before { /* 画像の上に重ねるオーバーレイ */
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(25, 42, 86, 0.4); /* メインカラーを半透明に */
+}
+.p-top-hero__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-text-light);
+}
+.p-top-hero__title {
+  font-family: var(--font-family-heading);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: .1em;
+}
+.p-top-hero__subtitle {
+  margin-top: var(--spacing-unit);
+  font-size: 16px;
+}
+
+/* --- Service Section --- */
+.p-top-service__grid {
+  display: grid;
+  gap: calc(var(--spacing-unit) * 4); /* 32px */
+}
+
+/* --- Philosophy Section --- */
+.p-top-philosophy {
+  background-color: var(--color-main);
+  color: var(--color-text-light);
+  text-align: center;
+}
+.p-top-philosophy__lead {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 2;
+  margin-bottom: calc(var(--spacing-unit) * 5); /* 40px */
+}
+
+/* =============================================
+ * == Animation
+ * ========================================== */
+.js-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.js-fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+ * == Media Queries (PC)
+ * ========================================== */
+@media (min-width: 768px) {
+  /* --- Components --- */
+  .c-section-title {
+    font-size: 40px;
+  }
+  /* --- Top Page --- */
+  .p-top-hero {
+    height: calc(100vh - var(--header-height-pc));
+    margin-top: var(--header-height-pc);
+  }
+  .p-top-hero__title {
+    font-size: 52px;
+  }
+  .p-top-hero__subtitle {
+    font-size: 18px;
+  }
+  .p-top-service__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
