@@ -114,6 +114,8 @@ img {
 
 .l-header__nav-list {
   padding-top: calc(var(--spacing-unit) * 4);
+  list-style-type: none; /* 箇条書きの点を非表示にする */
+  padding-left: 0; /* 組み込みのパディングをリセットする */
 }
 
 .l-header__nav-item a {
@@ -476,3 +478,4 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
