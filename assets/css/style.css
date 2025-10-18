@@ -370,15 +370,17 @@ img {
 
 /* --- Section Title --- */
 .c-section-title {
-  font-family: var(--font-family-heading);
+font-family: var(--font-family-heading);
   font-weight: 600;
   text-align: center;
   /* (線とコンテンツ間の余白) */
-  margin-bottom: calc(var(--spacing-unit) * 4); /* 32px */
+  margin-bottom: calc(var(--spacing-unit) * 4); /* ← 32px になっているか */
   font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
-  position: relative; /* 疑似要素の基準位置にする */
+  
+  position: relative; /* ← ★これが最重要です★ */
+  
   /* (テキストと線の間の余白) */
-  padding-bottom: calc(var(--spacing-unit) * 3); /* 24px */
+  padding-bottom: calc(var(--spacing-unit) * 3); /* ← 24px が追加されているか */
 }
 .c-section-title--light {
   color: var(--color-text-light);
@@ -695,10 +697,7 @@ img {
   width: 70px;  /* 線の幅 */
   height: 2px; /* 線の太さ */
   
-  /* * [ポイント]
-   * currentColor は、その要素の「文字色(color)」を自動的に参照します。
-   * これにより、.c-section-title--light では白、
-   * 通常の .c-section-title では濃い色の線が自動で描画されます。
-   */
+  /* currentColor が文字色（白/紺）を自動で参照します */
   background-color: currentColor;
 }
+
