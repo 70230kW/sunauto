@@ -28,7 +28,8 @@
   /* ▼ Typography */
   --font-family-heading: 'Noto Serif JP', serif;
   --font-family-body: 'Noto Sans JP', sans-serif;
-  --font-size-base: 16px;
+  /* 本文の基本サイズを可変に設定 (15px 〜 16px) */
+  --font-size-base: clamp(0.9375rem, 0.89rem + 0.2vw, 1rem);
   --line-height-base: 1.7;
 
   /* ▼ Layout */
@@ -42,7 +43,7 @@
 }
 
 html {
-  font-size: var(--font-size-base);
+  font-size: 100%; /* 16px を 1rem の基準とする */
 }
 
 body {
@@ -50,6 +51,7 @@ body {
   color: var(--color-text-primary);
   line-height: var(--line-height-base);
   background-color: var(--color-base);
+  font-size: var(--font-size-base); /* clamp()を適用 */
 }
 
 a {
@@ -91,8 +93,8 @@ img {
   left: 0;
   width: 100%;
   height: var(--header-height-sp);
-  background-color: var(--color-main); /* 紺色に変更 */
-  color: var(--color-text-light);      /* 文字色を白に設定 */
+  background-color: var(--color-main);
+  color: var(--color-text-light);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   z-index: 1000;
 }
@@ -105,9 +107,10 @@ img {
 }
 .l-header__logo {
   font-family: var(--font-family-heading);
-  font-size: 24px;
   font-weight: 600;
-  color: var(--color-text-light); /* 白に変更 */
+  color: var(--color-text-light);
+  /* (20px 〜 24px) */
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
 }
 .l-header__nav {
   position: fixed;
@@ -115,7 +118,7 @@ img {
   left: 0;
   width: 100%;
   height: calc(100vh - var(--header-height-sp));
-  background-color: var(--color-main); /* 紺色に変更 */
+  background-color: var(--color-main);
   transform: translateX(100%);
   transition: transform var(--transition-duration) ease-in-out;
 }
@@ -124,14 +127,13 @@ img {
 }
 .l-header__nav-list {
   padding-top: calc(var(--spacing-unit) * 4);
-  background-color: var(--color-main); /* 紺色に変更 */
 }
 .l-header__nav-item a {
   display: block;
   padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px (モバイル) */
   text-align: center;
-  color: var(--color-text-light); /* 文字色を白に追加 */
+  color: var(--color-text-light);
 }
 .l-header__hamburger {
   display: flex;
@@ -139,7 +141,7 @@ img {
   justify-content: space-around;
   width: 30px;
   height: 24px;
-  background-color: var(--color-main); /* 紺色に変更 */
+  background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -149,7 +151,7 @@ img {
   display: block;
   width: 100%;
   height: 2px;
-  background-color: var(--color-text-light); /* 白に変更 */
+  background-color: var(--color-text-light);
   transition: all var(--transition-duration);
 }
 .l-header__hamburger.is-active span:nth-of-type(1) { transform: translateY(11px) rotate(45deg); }
@@ -172,11 +174,13 @@ img {
 }
 .l-footer__logo {
   font-family: var(--font-family-heading);
-  font-size: 24px;
   font-weight: 600;
+  /* (20px 〜 24px) */
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
 }
 .l-footer__address {
-  font-size: 14px;
+  /* (13px 〜 14px) */
+  font-size: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
   margin-top: var(--spacing-unit);
 }
 .l-footer__nav-list {
@@ -186,13 +190,14 @@ img {
   gap: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
 }
 .l-footer__nav-item {
-  font-size: 14px;
+  /* (13px 〜 14px) */
+  font-size: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
 }
 .l-footer__copyright {
   background-color: rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: calc(var(--spacing-unit) * 1.5) 0;
-  font-size: 12px;
+  font-size: 0.75rem; /* 12px (可読性のため固定) */
 }
 
 /* =============================================
@@ -249,8 +254,9 @@ img {
 }
 .c-card__title {
   font-family: var(--font-family-heading);
-  font-size: 22px;
   margin-bottom: var(--spacing-unit);
+  /* (20px 〜 22px) */
+  font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.375rem);
 }
 .c-card__text {
   margin-bottom: calc(var(--spacing-unit) * 3);
@@ -268,10 +274,11 @@ img {
 }
 .c-cta__heading {
   font-family: var(--font-family-heading);
-  font-size: 28px;
   font-weight: 600;
   color: var(--color-main);
   margin-bottom: var(--spacing-unit);
+  /* (24px 〜 28px) */
+  font-size: clamp(1.5rem, 1.3rem + 1vw, 1.75rem);
 }
 .c-cta__text {
   margin-bottom: calc(var(--spacing-unit) * 4);
@@ -286,6 +293,7 @@ img {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: all var(--transition-duration);
+  margin-bottom: calc(var(--spacing-unit) * 5);
 }
 .c-cta__button:hover {
   opacity: 1;
@@ -293,13 +301,27 @@ img {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 .c-cta__button-number {
-  font-size: 32px;
   font-weight: 700;
   letter-spacing: 1px;
+  /* (28px 〜 32px) */
+  font-size: clamp(1.75rem, 1.6rem + 0.75vw, 2rem);
 }
 .c-cta__button-hours {
-  font-size: 14px;
+  /* (13px 〜 14px) */
+  font-size: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
   margin-top: calc(var(--spacing-unit) * 0.5);
+}
+.c-cta__map-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.c-cta__map {
+  width: 100%;
+  height: 100%;
 }
 
 /* --- Media Section --- */
@@ -317,8 +339,9 @@ img {
 }
 .c-media-section__title {
   font-family: var(--font-family-heading);
-  font-size: 28px;
   margin-bottom: calc(var(--spacing-unit) * 2);
+  /* (24px 〜 28px) */
+  font-size: clamp(1.5rem, 1.3rem + 1vw, 1.75rem);
 }
 .c-media-section__text {
   margin-bottom: calc(var(--spacing-unit) * 4);
@@ -334,22 +357,25 @@ img {
 }
 .c-page-header__title {
   font-family: var(--font-family-heading);
-  font-size: 32px;
+  /* (32px 〜 40px) */
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
 }
 .c-page-header__subtitle {
-  font-size: 14px;
   letter-spacing: .1em;
   opacity: 0.8;
   margin-top: var(--spacing-unit);
+  /* (13px 〜 14px) */
+  font-size: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
 }
 
 /* --- Section Title --- */
 .c-section-title {
   font-family: var(--font-family-heading);
-  font-size: 32px;
   font-weight: 600;
   text-align: center;
   margin-bottom: calc(var(--spacing-unit) * 6);
+  /* (32px 〜 40px) */
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
 }
 .c-section-title--light {
   color: var(--color-text-light);
@@ -366,37 +392,30 @@ img {
 }
 .c-value-card__title {
   font-family: var(--font-family-heading);
-  font-size: 22px;
   margin-bottom: 16px;
+  /* (20px 〜 22px) */
+  font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.375rem);
 }
 .c-value-card__text {
   text-align: left;
-  font-size: 15px;
+  /* (14px 〜 15px) */
+  font-size: clamp(0.875rem, 0.83rem + 0.2vw, 0.9375rem);
 }
 
 /* =============================================
  * == 4. Pages (p-*)
  * ========================================== */
 /* --- Top Page --- */
-/* assets/css/style.css の既存の .p-top-hero 関連を下記に置き換え */
-
-/* --- Hero Section --- */
 .p-top-hero {
   height: calc(100vh - var(--header-height-sp));
   margin-top: var(--header-height-sp);
-  /* background-image: url('../images/top/hero-image.jpg');  <-- 削除 */
-  /* background-size: cover;                                 <-- 削除 */
-  /* background-position: center;                            <-- 削除 */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden; /* はみ出た動画を隠す */
+  overflow: hidden;
+  background-color: var(--color-main);
 }
-
-/* ▼▼▼ 以下3つのスタイルブロックを追加・変更 ▼▼▼ */
-
-/* [追加] 背景動画のスタイル */
 .p-top-hero__video {
   position: absolute;
   top: 50%;
@@ -406,88 +425,28 @@ img {
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: 1; /* 一番背面に配置 */
-  object-fit: cover; /* アスペクト比を保ったまま全画面表示 */
+  z-index: 1;
+  object-fit: cover;
 }
-
-/* [変更] オーバーレイのz-indexを調整 *
-/* [変更] テキストコンテナのz-indexを調整 */
 .p-top-hero__inner {
   position: relative;
-  z-index: 2; /* 一番手前に配置 */
+  z-index: 3;
   text-align: center;
   color: var(--color-text-light);
 }
-
-/* ▲▲▲ ここまで ▲▲▲ */
-
-/* 動画ラッパー (video_wrap) を背景として絶対配置 */
-.video_wrap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* 重なり順を 1 (背面) に設定 */
-}
-
-/* video要素自体をラッパーいっぱいに広げる */
-.video_wrap video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* アスペクト比を保ったまま、コンテナ全体を覆う */
-}
-
-/* テキストコンテナ (p-top-hero__message) を前面に配置 */
-.p-top-hero__message {
-  position: relative; /* positionを指定して z-index を有効にする */
-  z-index: 3; /* 動画(1)より大きい値 (前面) に設定 */
-
-  /* 以下は任意：テキストを中央に配置し、見やすくする */
-  color: white; /* 動画が暗いことを想定し、文字色を白に */
-  text-align: center; /* テキストを中央揃え */
-
-  /* .p-top-hero__inner に display:flex を使わない場合の中央寄せの例 */
-  /*
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  */
-}
-
-
-/*
-   (推奨) 動画の上に半透明の黒いオーバーレイをかけて
-   テキストを読みやすくする場合
-*/
-.video_wrap::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* 40%の黒いフィルター */
-  z-index: 2; /* 動画(1) と テキスト(3) の間に配置 */
-}
-/* style.css の p-top-hero__title を探して追記 */
 .p-top-hero__title {
   font-family: var(--font-family-heading);
-  /* font-sizeをclamp()に変更 (最小28px, 可変8vw, 最大52px) */
-  font-size: clamp(28px, 8vw, 52px);
   font-weight: 600;
   letter-spacing: .1em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  /* (28px 〜 52px) */
+  font-size: clamp(1.75rem, 8vw, 3.25rem);
 }
-
-/* style.css の p-top-hero__subtitle を探して追記 */
 .p-top-hero__subtitle {
   margin-top: var(--spacing-unit);
-  /* font-sizeをclamp()に変更 (最小14px, 可変4.5vw, 最大18px) */
-  font-size: clamp(14px, 4.5vw, 18px);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); 
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  /* (14px 〜 18px) */
+  font-size: clamp(0.875rem, 4.5vw, 1.125rem);
 }
 .p-top-service__grid {
   display: grid;
@@ -508,8 +467,9 @@ img {
 /* --- Philosophy Page --- */
 .p-philosophy-mission__title {
   font-family: var(--font-family-heading);
-  font-size: 32px;
   margin-bottom: 32px;
+  /* (32px 〜 40px) */
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
 }
 .p-philosophy-mission__text {
   line-height: 2;
@@ -527,8 +487,9 @@ img {
 /* --- Purchase Page --- */
 .p-purchase-lead__title {
   font-family: var(--font-family-heading);
-  font-size: 32px;
   margin-bottom: 32px;
+  /* (32px 〜 40px) */
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
 }
 .p-purchase-features {
   background-color: var(--color-background);
@@ -558,21 +519,23 @@ img {
   background-color: var(--color-accent);
   color: var(--color-main);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25rem; /* 20px */
 }
 .p-purchase-flow__item:last-child {
   padding-bottom: 0;
 }
 .p-purchase-flow__title {
   font-family: var(--font-family-heading);
-  font-size: 22px;
   margin-bottom: 8px;
+  /* (20px 〜 22px) */
+  font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.375rem);
 }
 .p-purchase-flow__title span {
   display: block;
-  font-size: 14px;
   font-family: var(--font-family-body);
   color: #888;
+  /* (13px 〜 14px) */
+  font-size: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
 }
 .p-purchase-faq {
     background-color: var(--color-background);
@@ -590,9 +553,10 @@ img {
 .p-purchase-faq__question {
   position: relative;
   font-weight: 700;
-  font-size: 18px;
   padding: 24px 48px 24px 0;
   cursor: pointer;
+  /* (16px 〜 18px) */
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
 }
 .p-purchase-faq__question::-webkit-details-marker {
   display: none;
@@ -603,7 +567,7 @@ img {
   top: 50%;
   right: 8px;
   transform: translateY(-50%);
-  font-size: 24px;
+  font-size: 1.5rem; /* 24px */
   color: var(--color-main);
   transition: transform var(--transition-duration);
 }
@@ -618,8 +582,9 @@ img {
 /* --- Reform Page --- */
 .p-reform-lead__title {
   font-family: var(--font-family-heading);
-  font-size: 32px;
   margin-bottom: 32px;
+  /* (32px 〜 40px) */
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
 }
 .p-reform-features {
   background-color: var(--color-background);
@@ -676,16 +641,17 @@ img {
     gap: calc(var(--spacing-unit) * 4);
     padding-top: 0;
   }
-  .l-header__nav-item a { padding: 0; font-size: 16px; }
+  .l-header__nav-item a {
+    padding: 0;
+    font-size: 1rem; /* 16px (PC) - clamp対象外 */
+  }
   .l-footer__inner { flex-direction: row; justify-content: space-between; text-align: left; }
 
   /* --- Components --- */
-  .c-section-title { font-size: 40px; }
   .c-page-header {
     padding-top: calc(var(--header-height-pc) + var(--spacing-unit) * 8);
     padding-bottom: calc(var(--spacing-unit) * 8);
   }
-  .c-page-header__title { font-size: 40px; }
   .c-media-section { flex-direction: row; align-items: center; }
   .c-media-section__image-wrapper, .c-media-section__body { width: 50%; }
   .c-media-section__body { padding: calc(var(--spacing-unit) * 8); }
@@ -696,16 +662,10 @@ img {
     height: calc(100vh - var(--header-height-pc));
     margin-top: var(--header-height-pc);
   }
-  .p-top-hero__title { font-size: 52px; }
-  .p-top-hero__subtitle { font-size: 18px; }
   .p-top-service__grid { grid-template-columns: repeat(2, 1fr); }
   
-  .p-philosophy-mission__title { font-size: 40px; }
   .p-philosophy-values__grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
-  .p-purchase-lead__title { font-size: 40px; }
-
-  .p-reform-lead__title { font-size: 40px; }
   .p-reform-works__grid { grid-template-columns: repeat(2, 1fr); }
 
   /* --- Utility --- */
@@ -719,41 +679,4 @@ img {
   /* --- Pages --- */
   .p-philosophy-values__grid { gap: 60px; }
   .p-reform-works__grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* =============================================
- * == 以下をstyle.cssの末尾に追記
- * ========================================== */
-
-/* --- CTA (Call To Action) への追記 --- */
-
-/* ボタンとマップの間に余白を追加 */
-.c-cta__button {
-    margin-bottom: calc(var(--spacing-unit) * 5); /* 40px */
-}
-
-/* マップを囲むラッパーのスタイル */
-.c-cta__map-wrapper {
-    max-width: 800px; /* マップの最大幅を指定 */
-    margin: 0 auto; /* 中央揃え */
-    aspect-ratio: 16 / 9; /* モダンな 16:9 の比率で高さを自動調整 */
-    overflow: hidden; /* 角丸を適用するため */
-    border-radius: 8px; /* サイトの他の要素とデザインを統一 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 高級感を出す影 */
-}
-
-/* iframe本体のスタイル */
-.c-cta__map {
-    width: 100%;
-    height: 100%;
-}
-
-/* style.css の @media (min-width: 768px) ブロック内 */
-
-@media (min-width: 768px) {
-  /* ...他のスタイル... */
-  .p-top-service__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  /* ...他のスタイル... */
 }
