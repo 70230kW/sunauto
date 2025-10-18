@@ -403,27 +403,15 @@ img {
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: 2; /* 一番背面に配置 */
+  z-index: 1; /* 一番背面に配置 */
   object-fit: cover; /* アスペクト比を保ったまま全画面表示 */
 }
 
-/* [変更] オーバーレイのz-indexを調整 */
-/* assets/css/style.css からこのブロックを削除 */
-
-/* [変更] オーバーレイのz-indexを調整 */
-.p-top-hero::before { /* 画像の上に重ねるオーバーレイ */
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(25, 42, 86, 0.4);
-  z-index: 2; /* 動画の上、テキストの下に配置 */
-}
-
+/* [変更] オーバーレイのz-indexを調整 *
 /* [変更] テキストコンテナのz-indexを調整 */
 .p-top-hero__inner {
   position: relative;
-  z-index: 3; /* 一番手前に配置 */
+  z-index: 2; /* 一番手前に配置 */
   text-align: center;
   color: var(--color-text-light);
 }
@@ -722,6 +710,7 @@ img {
   .p-philosophy-values__grid { gap: 60px; }
   .p-reform-works__grid { grid-template-columns: repeat(3, 1fr); }
 }
+
 
 
 
