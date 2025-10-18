@@ -746,6 +746,18 @@ img {
     height: 100%;
 }
 
+/* --- レスポンシブ対応の微調整 (小画面) --- */
+@media (max-width: 375px) {
 
+  /* 経営理念ページのミッションタイトル */
+  .p-philosophy-mission__title {
+    /* 32pxから少し小さくし、狭い画面での折り返しを防ぐ */
+    font-size: 28px;
+  }
 
-
+  /* 3つの約束（バリューカード）のタイトル */
+  .c-value-card__title {
+    /* 22pxから少し小さくする */
+    font-size: 20px;
+  }
+}
