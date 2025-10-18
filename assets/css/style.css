@@ -375,33 +375,57 @@ img {
  * == 4. Pages (p-*)
  * ========================================== */
 /* --- Top Page --- */
+/* assets/css/style.css の既存の .p-top-hero 関連を下記に置き換え */
+
+/* --- Hero Section --- */
 .p-top-hero {
   height: calc(100vh - var(--header-height-sp));
   margin-top: var(--header-height-sp);
-  background-image: url('../images/top/hero-image.jpg');
-  background-size: cover;
-  background-position: center;
+  /* background-image: url('../images/top/hero-image.jpg');  <-- 削除 */
+  /* background-size: cover;                                 <-- 削除 */
+  /* background-position: center;                            <-- 削除 */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden; /* はみ出た動画を隠す */
 }
-.p-top-hero::before {
+
+/* ▼▼▼ 以下3つのスタイルブロックを追加・変更 ▼▼▼ */
+
+/* [追加] 背景動画のスタイル */
+.p-top-hero__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1; /* 一番背面に配置 */
+  object-fit: cover; /* アスペクト比を保ったまま全画面表示 */
+}
+
+/* [変更] オーバーレイのz-indexを調整 */
+.p-top-hero::before { /* 画像の上に重ねるオーバーレイ */
   content: '';
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background-color: rgba(25, 42, 86, 0.4);
+  z-index: 2; /* 動画の上、テキストの下に配置 */
 }
-/* --- ヒーローセクションの改善案 --- */
 
-/* 親要素(p-top-hero__inner) を重ね合わせの基準にする */
+/* [変更] テキストコンテナのz-indexを調整 */
 .p-top-hero__inner {
-  position: relative; /* 子要素を絶対配置(absolute)する際の基準点 */
-  width: 100%;
-  height: 100vh; /* 例：画面の高さいっぱいに広げる（高さは任意で調整可） */
-  overflow: hidden; /* はみ出した動画を隠す */
+  position: relative;
+  z-index: 3; /* 一番手前に配置 */
+  text-align: center;
+  color: var(--color-text-light);
 }
+
+/* ▲▲▲ ここまで ▲▲▲ */
 
 /* 動画ラッパー (video_wrap) を背景として絶対配置 */
 .video_wrap {
@@ -695,3 +719,4 @@ img {
   .p-philosophy-values__grid { gap: 60px; }
   .p-reform-works__grid { grid-template-columns: repeat(3, 1fr); }
 }
+
