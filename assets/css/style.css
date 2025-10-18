@@ -475,17 +475,19 @@ img {
 /* style.css の p-top-hero__title を探して追記 */
 .p-top-hero__title {
   font-family: var(--font-family-heading);
-  font-size: 36px;
+  /* font-sizeをclamp()に変更 (最小28px, 可変8vw, 最大52px) */
+  font-size: clamp(28px, 8vw, 52px);
   font-weight: 600;
   letter-spacing: .1em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* ← この行を追加 */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
 }
 
 /* style.css の p-top-hero__subtitle を探して追記 */
 .p-top-hero__subtitle {
   margin-top: var(--spacing-unit);
-  font-size: 16px;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* ← この行を追加 */
+  /* font-sizeをclamp()に変更 (最小14px, 可変4.5vw, 最大18px) */
+  font-size: clamp(14px, 4.5vw, 18px);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); 
 }
 .p-top-service__grid {
   display: grid;
@@ -761,5 +763,6 @@ img {
     font-size: 20px;
   }
 }
+
 
 
