@@ -752,7 +752,7 @@ img {
   /* 経営理念ページのミッションタイトル */
   .p-philosophy-mission__title {
     /* 32pxから少し小さくし、狭い画面での折り返しを防ぐ */
-    font-size: 28px;
+    font-size: 26px;
   }
 
   /* 3つの約束（バリューカード）のタイトル */
@@ -761,4 +761,5 @@ img {
     font-size: 20px;
   }
 }
+
 
