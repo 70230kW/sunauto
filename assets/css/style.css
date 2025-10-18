@@ -747,7 +747,7 @@ img {
 }
 
 /* --- レスポンシブ対応の微調整 (小画面) --- */
-@media (max-width: 375px) {
+@media (max-width: 500px) {
 
   /* 経営理念ページのミッションタイトル */
   .p-philosophy-mission__title {
@@ -761,3 +761,4 @@ img {
     font-size: 20px;
   }
 }
+
