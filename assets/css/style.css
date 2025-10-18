@@ -469,15 +469,20 @@ img {
   background-color: rgba(0, 0, 0, 0.4); /* 40%の黒いフィルター */
   z-index: 2; /* 動画(1) と テキスト(3) の間に配置 */
 }
+/* style.css の p-top-hero__title を探して追記 */
 .p-top-hero__title {
   font-family: var(--font-family-heading);
   font-size: 36px;
   font-weight: 600;
   letter-spacing: .1em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* ← この行を追加 */
 }
+
+/* style.css の p-top-hero__subtitle を探して追記 */
 .p-top-hero__subtitle {
   margin-top: var(--spacing-unit);
   font-size: 16px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* ← この行を追加 */
 }
 .p-top-service__grid {
   display: grid;
@@ -710,6 +715,7 @@ img {
   .p-philosophy-values__grid { gap: 60px; }
   .p-reform-works__grid { grid-template-columns: repeat(3, 1fr); }
 }
+
 
 
 
