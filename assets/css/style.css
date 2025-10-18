@@ -373,9 +373,12 @@ img {
   font-family: var(--font-family-heading);
   font-weight: 600;
   text-align: center;
-  margin-bottom: calc(var(--spacing-unit) * 6);
-  /* (32px 〜 40px) */
+  /* (線とコンテンツ間の余白) */
+  margin-bottom: calc(var(--spacing-unit) * 4); /* 32px */
   font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
+  position: relative; /* 疑似要素の基準位置にする */
+  /* (テキストと線の間の余白) */
+  padding-bottom: calc(var(--spacing-unit) * 3); /* 24px */
 }
 .c-section-title--light {
   color: var(--color-text-light);
@@ -679,4 +682,23 @@ img {
   /* --- Pages --- */
   .p-philosophy-values__grid { gap: 60px; }
   .p-reform-works__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.c-section-title::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0; /* padding-bottomの底辺に配置 */
+  transform: translateX(-50%); /* 中央揃え */
+  
+  width: 70px;  /* 線の幅 */
+  height: 2px; /* 線の太さ */
+  
+  /* * [ポイント]
+   * currentColor は、その要素の「文字色(color)」を自動的に参照します。
+   * これにより、.c-section-title--light では白、
+   * 通常の .c-section-title では濃い色の線が自動で描画されます。
+   */
+  background-color: currentColor;
 }
