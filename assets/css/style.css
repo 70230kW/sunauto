@@ -748,21 +748,12 @@ img {
     height: 100%;
 }
 
-/* --- レスポンシブ対応の微調整 (小画面) --- */
-@media (max-width: 500px) {
+/* style.css の @media (min-width: 768px) ブロック内 */
 
-  /* 経営理念ページのミッションタイトル */
-  .p-philosophy-mission__title {
-    /* 32pxから少し小さくし、狭い画面での折り返しを防ぐ */
-    font-size: 26px;
+@media (min-width: 768px) {
+  /* ...他のスタイル... */
+  .p-top-service__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  /* 3つの約束（バリューカード）のタイトル */
-  .c-value-card__title {
-    /* 22pxから少し小さくする */
-    font-size: 20px;
-  }
+  /* ...他のスタイル... */
 }
-
-
-
