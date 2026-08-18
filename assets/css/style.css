@@ -584,21 +584,6 @@ font-family: var(--font-family-heading);
   line-height: 1.8;
 }
 
-/* --- Reform Page --- */
-.p-reform-lead__title {
-  font-family: var(--font-family-heading);
-  margin-bottom: 32px;
-  /* (32px 〜 40px) */
-  font-size: clamp(2rem, 1.5rem + 2.5vw, 2.5rem);
-}
-.p-reform-features {
-  background-color: var(--color-background);
-}
-.p-reform-works__grid {
-  display: grid;
-  gap: 32px;
-}
-
 /* =============================================
  * == 5. Utility (u-*)
  * ========================================== */
@@ -671,8 +656,6 @@ font-family: var(--font-family-heading);
   
   .p-philosophy-values__grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
-  .p-reform-works__grid { grid-template-columns: repeat(2, 1fr); }
-
   /* --- Utility --- */
   .u-hidden-sp { display: inline; }
 }
@@ -683,7 +666,6 @@ font-family: var(--font-family-heading);
 
   /* --- Pages --- */
   .p-philosophy-values__grid { gap: 60px; }
-  .p-reform-works__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .c-section-title::after {
